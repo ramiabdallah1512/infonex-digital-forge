@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -13,6 +14,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
+    subject: "",
     message: ""
   });
 
@@ -25,6 +27,7 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          subject: formData.subject,
           message: formData.message
         }
       });
@@ -36,7 +39,7 @@ const Contact = () => {
         description: "Nous vous répondrons dans les plus brefs délais.",
       });
 
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
       console.error("Error sending email:", error);
       toast({
@@ -51,6 +54,13 @@ const Contact = () => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      subject: value
     }));
   };
 
@@ -168,6 +178,26 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium">
+                    Objet *
+                  </label>
+                  <Select value={formData.subject} onValueChange={handleSelectChange} required>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Sélectionnez un objet" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Infrastructure IT & Réseaux">Infrastructure IT & Réseaux</SelectItem>
+                      <SelectItem value="Cybersécurité">Cybersécurité</SelectItem>
+                      <SelectItem value="Cloud & Virtualisation">Cloud & Virtualisation</SelectItem>
+                      <SelectItem value="Développement Web">Développement Web</SelectItem>
+                      <SelectItem value="Infogérance">Infogérance</SelectItem>
+                      <SelectItem value="Consulting IT">Consulting IT</SelectItem>
+                      <SelectItem value="Autre demande">Autre demande</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-2">

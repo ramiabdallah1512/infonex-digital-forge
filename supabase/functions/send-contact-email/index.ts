@@ -12,6 +12,7 @@ interface ContactEmailRequest {
   name: string;
   email: string;
   phone: string;
+  subject: string;
   message: string;
 }
 
@@ -21,7 +22,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, phone, message }: ContactEmailRequest = await req.json();
+    const { name, email, phone, subject, message }: ContactEmailRequest = await req.json();
 
     console.log("Sending contact form email from:", email);
 
@@ -35,12 +36,13 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Contact Form <contact@infonex.fr>",
         to: ["contact@infonex.fr"],
-        subject: `Nouveau message de ${name}`,
+        subject: `${subject} - ${name}`,
         html: `
           <h2>Nouveau message depuis le formulaire de contact</h2>
           <p><strong>Nom:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Téléphone:</strong> ${phone}</p>
+          <p><strong>Objet:</strong> ${subject}</p>
           <p><strong>Message:</strong></p>
           <p>${message}</p>
         `,
