@@ -34,7 +34,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "Contact Form <onboarding@resend.dev>",
-        to: ["contact@infonex.fr"],
+        to: ["rabdallah1512@gmail.com"], // Mode test Resend - changez après validation du domaine
         subject: `Nouveau message de ${name}`,
         html: `
           <h2>Nouveau message depuis le formulaire de contact</h2>
