@@ -45,10 +45,10 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
   }));
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(222,47%,11%)] via-[hsl(217,33%,17%)] to-[hsl(222,47%,11%)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a2849] via-[#2a4175] to-[#1e3a6e]">
       {/* Animated gradient orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-[#3d5a9e]/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#5171c9]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
       
       {/* Floating particles */}
       {particles.map((particle) => (
