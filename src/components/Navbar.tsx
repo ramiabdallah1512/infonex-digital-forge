@@ -1,20 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsOpen(false);
   };
 
   const menuItems = [
-    { label: "Accueil", id: "hero" },
-    { label: "Services", id: "services" },
-    { label: "Contact", id: "contact" }
+    { label: "Accueil", path: "/", type: "link" },
+    { label: "Services", path: "/services", type: "link" },
+    { label: "À Propos", path: "/about", type: "link" },
+    { label: "Contact", id: "contact", type: "scroll" }
   ];
 
   return (
@@ -22,24 +30,44 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button 
-            onClick={() => scrollToSection('hero')}
+          <Link 
+            to="/"
             className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             Infonex
-          </button>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+            {menuItems.map((item) => {
+              if (item.type === "link") {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path!}
+                    className={`font-medium transition-colors relative group ${
+                      isActive ? 'text-primary' : 'text-foreground hover:text-primary'
+                    }`}
+                  >
+                    {item.label}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.id!)}
+                    className="text-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    {item.label}
+                  </button>
+                );
+              }
+            })}
             <Button 
               onClick={() => scrollToSection('contact')}
               className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
@@ -60,15 +88,33 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-4 animate-fade-in">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+            {menuItems.map((item) => {
+              if (item.type === "link") {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path!}
+                    onClick={() => setIsOpen(false)}
+                    className={`block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium ${
+                      isActive ? 'text-primary' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.id!)}
+                    className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium"
+                  >
+                    {item.label}
+                  </button>
+                );
+              }
+            })}
             <div className="px-4">
               <Button 
                 onClick={() => scrollToSection('contact')}

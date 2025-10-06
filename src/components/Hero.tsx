@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -60,9 +61,11 @@ const Hero = () => {
               size="lg" 
               variant="outline"
               className="border-primary/30 hover:bg-primary/5"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              asChild
             >
-              Découvrir nos services
+              <Link to="/services">
+                Découvrir nos services
+              </Link>
             </Button>
           </div>
 
