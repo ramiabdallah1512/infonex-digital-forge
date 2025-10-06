@@ -1,4 +1,5 @@
 import { Shield, Key, Cloud, HardDrive, Lock, Smartphone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +7,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 
 const ProductsPage = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/', { state: { scrollTo: 'contact' } });
+  };
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -326,14 +332,9 @@ const ProductsPage = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Nos experts sont à votre disposition pour vous conseiller et vous proposer la solution adaptée à vos besoins
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
-                Contactez-nous
-              </Button>
-              <Button size="lg" variant="outline">
-                Télécharger le catalogue
-              </Button>
-            </div>
+            <Button size="lg" onClick={handleContactClick}>
+              Contactez-nous
+            </Button>
           </div>
         </section>
       </main>
