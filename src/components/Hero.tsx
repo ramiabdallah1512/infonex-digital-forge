@@ -45,10 +45,10 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
   }));
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#2563eb] via-[#3b82f6] to-[#1d4ed8]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a1f3a] via-[#2a3a6e] to-[#4a5fba]">
       {/* Animated gradient orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-[#60a5fa]/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#3b82f6]/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-[#4a5fba]/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#2a3a6e]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
       
       {/* Floating particles */}
       {particles.map((particle) => (
@@ -79,36 +79,25 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
-            <Shield className="w-4 h-4 text-primary animate-glow" />
-            <span className="text-sm font-medium text-foreground">🚀 Plus de 15 ans d'expertise IT à votre service</span>
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
+            <span className="text-sm font-medium text-white">15+ ans d'expertise</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
-            L'Excellence{" "}
-            <span 
-              className={`inline-block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-glow transition-all duration-500 ${
-                isAnimating ? 'opacity-0 -translate-y-4 scale-95' : 'opacity-100 translate-y-0 scale-100'
-              }`}
-            >
-              {words[currentWord]}
-            </span>
-            <span className="block mt-2">
-              pour Toutes les Entreprises
-            </span>
+            <span className="text-[#ff6b35]">INFONEX —</span>
+            <br />
+            <span className="text-white">Infogérance,</span>
+            <br />
+            <span className="text-[#60a5fa]">Cybersécurité &</span>
+            <br />
+            <span className="text-white">Cloud</span>
           </h1>
 
           {/* Description */}
-          <div className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto space-y-3">
-            <p className="font-semibold text-foreground">
-              TPE • PME • Grandes Entreprises
-            </p>
-            <p className="text-lg">
-              Un accompagnement personnalisé avec notre équipe d'experts pour transformer vos défis IT en succès stratégiques
-            </p>
-            <p className="text-base">
-              Infrastructure • Cloud • Cybersécurité • Infogérance • Consulting
+          <div className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            <p>
+              Accélérez, sécurisez et simplifiez votre IT avec un partenaire de confiance.
             </p>
           </div>
 
