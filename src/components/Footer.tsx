@@ -60,7 +60,7 @@ const Footer = () => {
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>1 Pass. Amélie de Pitteurs<br />91360 Épinay-sur-Orge</span>
+                <span>Épinay-sur-Orge</span>
               </div>
               <a 
                 href="mailto:contact@infonex.fr" 

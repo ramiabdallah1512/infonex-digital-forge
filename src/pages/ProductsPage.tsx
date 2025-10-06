@@ -70,7 +70,7 @@ const ProductsPage = () => {
                         <li>✓ Gestion centralisée des utilisateurs</li>
                         <li>✓ Logs d'audit détaillés</li>
                       </ul>
-                      <Button className="mt-4 w-full">Demander un devis</Button>
+                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
                     </CardContent>
                   </Card>
 
@@ -92,7 +92,7 @@ const ProductsPage = () => {
                         <li>✓ Compatible avec Azure AD</li>
                         <li>✓ Reporting et conformité RGPD</li>
                       </ul>
-                      <Button className="mt-4 w-full">Demander un devis</Button>
+                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
                     </CardContent>
                   </Card>
 
@@ -114,7 +114,7 @@ const ProductsPage = () => {
                         <li>✓ Détection des tentatives d'intrusion</li>
                         <li>✓ Notifications en temps réel</li>
                       </ul>
-                      <Button className="mt-4 w-full">Demander un devis</Button>
+                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
                     </CardContent>
                   </Card>
 
@@ -136,7 +136,7 @@ const ProductsPage = () => {
                         <li>✓ Authentification sans mot de passe</li>
                         <li>✓ Tableau de bord administrateur complet</li>
                       </ul>
-                      <Button className="mt-4 w-full">Demander un devis</Button>
+                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
                     </CardContent>
                   </Card>
                 </div>
