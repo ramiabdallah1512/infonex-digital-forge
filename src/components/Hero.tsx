@@ -1,9 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const words = ["IT", "AI", "Cloud", "Cybersécurité", "Infrastructure"];
+  const [currentWord, setCurrentWord] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentWord((prev) => (prev + 1) % words.length);
+        setIsAnimating(false);
+      }, 500);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -36,9 +53,16 @@ const Hero = () => {
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
-            L'Excellence IT pour
-            <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-glow">
-              Toutes les Entreprises
+            L'Excellence{" "}
+            <span 
+              className={`inline-block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-glow transition-all duration-500 ${
+                isAnimating ? 'opacity-0 -translate-y-4 scale-95' : 'opacity-100 translate-y-0 scale-100'
+              }`}
+            >
+              {words[currentWord]}
+            </span>
+            <span className="block mt-2">
+              pour Toutes les Entreprises
             </span>
           </h1>
 
