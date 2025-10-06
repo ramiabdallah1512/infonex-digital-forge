@@ -245,7 +245,7 @@ const ServicesPage = () => {
                 <Button asChild size="lg" variant="secondary" className="text-lg">
                   <Link to="/#contact">Demander un Audit Gratuit</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="text-lg border-white text-white hover:bg-white hover:text-primary">
+                <Button asChild size="lg" variant="secondary" className="text-lg bg-white text-primary hover:bg-white/90">
                   <a href="tel:0961085166">Appeler : 09 61 08 51 66</a>
                 </Button>
               </div>
