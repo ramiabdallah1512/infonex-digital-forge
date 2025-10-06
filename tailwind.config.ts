@@ -88,8 +88,8 @@ export default {
           "100%": { opacity: "1", transform: "scale(1)" },
         },
         "glow": {
-          "0%, 100%": { filter: "drop-shadow(0 0 20px hsl(221 83% 53% / 0.3))" },
-          "50%": { filter: "drop-shadow(0 0 40px hsl(262 83% 58% / 0.5))" },
+          "0%, 100%": { filter: "drop-shadow(0 0 20px hsl(25 95% 53% / 0.3))" },
+          "50%": { filter: "drop-shadow(0 0 40px hsl(195 84% 56% / 0.5))" },
         },
       },
       animation: {

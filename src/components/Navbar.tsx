@@ -10,13 +10,17 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
+    setIsOpen(false);
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: id } });
     } else {
-      const element = document.getElementById(id);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
-    setIsOpen(false);
   };
 
   const menuItems = [
