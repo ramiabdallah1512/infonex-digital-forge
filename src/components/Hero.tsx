@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, Shield, Cloud, Server, Lock, Database, Cpu, Network, Brain, HardDrive } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -26,22 +25,55 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
   }, []);
 
 
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Technology background" 
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
-      </div>
+  const techIcons = [
+    { Icon: Cloud, position: "top-[15%] left-[10%]", delay: "0s", size: 48 },
+    { Icon: Server, position: "top-[25%] right-[15%]", delay: "1s", size: 56 },
+    { Icon: Lock, position: "top-[45%] left-[8%]", delay: "2s", size: 40 },
+    { Icon: Database, position: "bottom-[30%] right-[12%]", delay: "1.5s", size: 52 },
+    { Icon: Cpu, position: "top-[60%] left-[15%]", delay: "0.5s", size: 44 },
+    { Icon: Network, position: "bottom-[20%] left-[20%]", delay: "2.5s", size: 48 },
+    { Icon: Brain, position: "top-[35%] right-[8%]", delay: "1.8s", size: 42 },
+    { Icon: HardDrive, position: "bottom-[40%] right-[25%]", delay: "0.8s", size: 46 },
+  ];
 
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 5}s`,
+    duration: `${15 + Math.random() * 10}s`,
+  }));
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(222,47%,11%)] via-[hsl(217,33%,17%)] to-[hsl(222,47%,11%)]">
       {/* Animated gradient orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-glow" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/30 rounded-full blur-3xl animate-glow" style={{ animationDelay: "1.5s" }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl animate-glow" style={{ animationDelay: "3s" }} />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+      
+      {/* Floating particles */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-primary/40 rounded-full animate-float"
+          style={{
+            left: particle.left,
+            top: particle.top,
+            animationDelay: particle.delay,
+            animationDuration: particle.duration,
+          }}
+        />
+      ))}
+
+      {/* Floating tech icons */}
+      {techIcons.map(({ Icon, position, delay, size }, index) => (
+        <div
+          key={index}
+          className={`absolute ${position} animate-float-slow opacity-10`}
+          style={{ animationDelay: delay }}
+        >
+          <Icon size={size} className="text-primary/60" />
+        </div>
+      ))}
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
