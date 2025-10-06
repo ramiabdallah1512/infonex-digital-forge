@@ -17,6 +17,9 @@ const Index = () => {
       element?.scrollIntoView({ behavior: 'smooth' });
       // Clear the state after scrolling
       window.history.replaceState({}, document.title);
+    } else if (location.state?.scrollToTop) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.replaceState({}, document.title);
     }
   }, [location]);
 

@@ -27,7 +27,7 @@ const Navbar = () => {
     e.preventDefault();
     setIsOpen(false);
     if (location.pathname !== '/') {
-      navigate('/');
+      navigate('/', { state: { scrollToTop: true } });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
