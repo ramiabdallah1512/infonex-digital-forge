@@ -1,14 +1,18 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Award, Users, TrendingUp, Shield, Target, Zap } from "lucide-react";
+import QuoteDialog from "@/components/QuoteDialog";
 
 const AboutPage = () => {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main>
         {/* Hero Section */}
         <section className="py-24 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden">
@@ -195,6 +199,7 @@ const AboutPage = () => {
         </section>
       </main>
       <Footer />
+      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </div>
   );
 };

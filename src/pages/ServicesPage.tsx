@@ -1,9 +1,11 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import QuoteDialog from "@/components/QuoteDialog";
 import infogeranceImg from "@/assets/services/infogerance.jpg";
 import infrastructureImg from "@/assets/services/infrastructure.jpg";
 import virtualisationImg from "@/assets/services/virtualisation.jpg";
@@ -145,9 +147,11 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main>
         {/* Hero Section */}
         <section className="py-24 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden">
@@ -254,6 +258,7 @@ const ServicesPage = () => {
         </section>
       </main>
       <Footer />
+      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -7,9 +7,11 @@ import WhyUs from "@/components/WhyUs";
 import Partners from "@/components/Partners";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import QuoteDialog from "@/components/QuoteDialog";
 
 const Index = () => {
   const location = useLocation();
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -25,10 +27,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main>
         <div id="hero">
-          <Hero />
+          <Hero onQuoteClick={() => setQuoteDialogOpen(true)} />
         </div>
         <div id="services">
           <Services />
@@ -40,6 +42,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
+      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </div>
   );
 };

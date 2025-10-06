@@ -3,13 +3,15 @@ import { ArrowRight, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import QuoteDialog from "./QuoteDialog";
 
-const Hero = () => {
+interface HeroProps {
+  onQuoteClick: () => void;
+}
+
+const Hero = ({ onQuoteClick }: HeroProps) => {
   const words = ["Infogérance", "Infrastructure", "Virtualisation", "Cloud", "Cybersécurité", "Consulting", "Web", "Sécurité"];
   const [currentWord, setCurrentWord] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,7 +85,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="group bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-300 hover:scale-110 animate-glow"
-              onClick={() => setQuoteDialogOpen(true)}
+              onClick={onQuoteClick}
             >
               Demander un devis
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -120,9 +122,6 @@ const Hero = () => {
 
       {/* Bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-
-      {/* Quote Dialog */}
-      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </section>
   );
 };

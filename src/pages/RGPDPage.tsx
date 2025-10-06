@@ -1,11 +1,15 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Shield } from "lucide-react";
+import QuoteDialog from "@/components/QuoteDialog";
 
 const RGPDPage = () => {
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16 max-w-4xl">
           <div className="text-center mb-12 animate-fade-in">
@@ -120,6 +124,7 @@ const RGPDPage = () => {
         </div>
       </main>
       <Footer />
+      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </div>
   );
 };

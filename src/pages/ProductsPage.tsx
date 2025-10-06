@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Shield, Key, Cloud, HardDrive, Lock, Smartphone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -5,16 +6,18 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import QuoteDialog from "@/components/QuoteDialog";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
+  const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
 
   const handleContactClick = () => {
     navigate('/', { state: { scrollTo: 'contact' } });
   };
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-20">
@@ -339,6 +342,7 @@ const ProductsPage = () => {
         </section>
       </main>
       <Footer />
+      <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
     </div>
   );
 };

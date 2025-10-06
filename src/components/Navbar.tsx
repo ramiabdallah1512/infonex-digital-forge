@@ -4,7 +4,11 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
-const Navbar = () => {
+interface NavbarProps {
+  onQuoteClick: () => void;
+}
+
+const Navbar = ({ onQuoteClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -106,7 +110,7 @@ const Navbar = () => {
               }
             })}
             <Button 
-              onClick={() => scrollToSection('contact')}
+              onClick={onQuoteClick}
               className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
             >
               Demander un devis
@@ -168,7 +172,10 @@ const Navbar = () => {
             })}
             <div className="px-4">
               <Button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => {
+                  setIsOpen(false);
+                  onQuoteClick();
+                }}
                 className="w-full bg-gradient-to-r from-primary to-secondary"
               >
                 Demander un devis
