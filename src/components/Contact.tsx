@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -15,24 +16,35 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Créer le mailto avec les informations du formulaire
-    const subject = encodeURIComponent(`Demande de contact - ${formData.name}`);
-    const body = encodeURIComponent(
-      `Nom: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Téléphone: ${formData.phone}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:contact@infonex.fr?subject=${subject}&body=${body}`;
-    
-    toast({
-      title: "Message en cours d'envoi",
-      description: "Votre client email va s'ouvrir avec votre message pré-rempli.",
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message envoyé avec succès!",
+        description: "Nous vous répondrons dans les plus brefs délais.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Erreur d'envoi",
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
