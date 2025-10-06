@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
+import Partners from "@/components/Partners";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -30,6 +31,7 @@ const Index = () => {
           <Services />
         </div>
         <WhyUs />
+        <Partners />
         <div id="contact">
           <Contact />
         </div>
