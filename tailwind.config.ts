@@ -89,7 +89,7 @@ export default {
         },
         "glow": {
           "0%, 100%": { filter: "drop-shadow(0 0 20px hsl(221 83% 53% / 0.3))" },
-          "50%": { filter: "drop-shadow(0 0 40px hsl(25 95% 53% / 0.5))" },
+          "50%": { filter: "drop-shadow(0 0 40px hsl(262 83% 58% / 0.5))" },
         },
       },
       animation: {
