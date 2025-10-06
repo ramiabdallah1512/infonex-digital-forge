@@ -26,6 +26,7 @@ const Navbar = () => {
   const menuItems = [
     { label: "Accueil", path: "/", type: "link" },
     { label: "Services", path: "/services", type: "link" },
+    { label: "Produits", path: "/products", type: "link" },
     { label: "À Propos", path: "/about", type: "link" },
     { label: "Contact", id: "contact", type: "scroll" }
   ];
