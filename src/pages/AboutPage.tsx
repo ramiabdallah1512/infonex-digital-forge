@@ -38,14 +38,22 @@ const AboutPage = () => {
 
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Infonex est née de la conviction qu'une infrastructure IT performante est la clé du succès des entreprises modernes. 
-                  En tant qu'auto-entrepreneur passionné par les technologies, je me suis donné pour mission d'accompagner 
-                  les entreprises dans leur transformation digitale avec des solutions sur-mesure, performantes et sécurisées.
+                  Avec plus de <strong className="text-primary">15 ans d'expérience passionnée dans le domaine de l'informatique</strong>, 
+                  j'ai fondé Infonex avec une conviction profonde : une infrastructure IT performante et sécurisée est le pilier 
+                  du succès des entreprises modernes. Que vous soyez une TPE en croissance, une PME ambitieuse ou une grande 
+                  entreprise, mon équipe et moi-même serons ravis de vous accompagner avec un dévouement total.
                 </p>
                 
                 <p className="text-lg text-muted-foreground leading-relaxed mt-6">
-                  Chaque projet est unique et mérite une approche personnalisée. C'est pourquoi je m'engage à comprendre 
-                  vos enjeux métier pour proposer des solutions IT qui s'alignent parfaitement avec vos objectifs stratégiques.
+                  <strong className="text-secondary">Notre force : l'accompagnement personnalisé.</strong> Nous ne croyons pas 
+                  aux solutions toutes faites. Chaque entreprise a ses propres défis, sa propre culture, ses propres ambitions. 
+                  C'est pourquoi nous consacrons le temps nécessaire à comprendre en profondeur vos enjeux métier, vos processus, 
+                  et vos objectifs stratégiques pour concevoir LA solution qui vous propulsera vers l'excellence.
+                </p>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mt-6">
+                  Notre mission va au-delà de la simple prestation technique : nous devenons votre <strong>partenaire de confiance</strong>, 
+                  toujours à vos côtés pour transformer chaque défi IT en opportunité de croissance et d'innovation.
                 </p>
               </div>
             </div>
@@ -124,13 +132,13 @@ const AboutPage = () => {
               {[
                 {
                   title: "Expertise Technique Pointue",
-                  description: "Des compétences avancées sur l'ensemble des technologies IT modernes : cloud, virtualisation, cybersécurité, infrastructure réseau.",
-                  highlight: "10+ ans d'expérience"
+                  description: "Des compétences avancées sur l'ensemble des technologies IT modernes : cloud, virtualisation, cybersécurité, infrastructure réseau. Un dirigeant expert avec 15+ ans d'expérience et une équipe passionnée.",
+                  highlight: "15+ ans d'expérience"
                 },
                 {
-                  title: "Approche Sur-Mesure",
-                  description: "Pas de solution toute faite. Chaque projet est analysé en profondeur pour proposer l'architecture la plus adaptée à vos besoins.",
-                  highlight: "100% personnalisé"
+                  title: "Accompagnement Personnalisé",
+                  description: "Notre équipe se dédie entièrement à votre projet. Nous analysons en profondeur vos besoins pour créer des solutions uniques qui vous ressemblent et dépassent vos attentes.",
+                  highlight: "100% sur-mesure"
                 },
                 {
                   title: "Support Réactif",

@@ -1,12 +1,14 @@
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
-  "Expertise technique reconnue et certifiée",
-  "Support réactif disponible 24/7",
-  "Solutions sur-mesure adaptées à vos besoins",
-  "Sécurité et conformité garanties",
-  "Accompagnement dans votre transformation digitale",
-  "Tarifs transparents et compétitifs"
+  "🎯 +15 ans d'expertise en infrastructure et cybersécurité",
+  "👨‍💼 Dirigeant expert passionné avec son équipe dédiée",
+  "🤝 Accompagnement personnalisé à chaque étape",
+  "⚡ Support réactif et disponible 24/7",
+  "🔒 Solutions sécurisées certifiées et conformes",
+  "💡 Innovation constante pour votre compétitivité",
+  "📊 Analyse approfondie pour des solutions sur-mesure",
+  "💰 Optimisation des coûts et ROI garanti"
 ];
 
 const WhyUs = () => {
@@ -22,8 +24,10 @@ const WhyUs = () => {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Nous combinons expertise technique, innovation et proximité pour vous offrir 
-              des solutions IT qui propulsent votre entreprise vers l'excellence.
+              Dirigée par un expert avec plus de 15 ans d'expérience en informatique, notre équipe 
+              se consacre entièrement à votre réussite avec un accompagnement personnalisé unique. 
+              Nous ne proposons pas de solutions standards : chaque projet bénéficie d'une analyse 
+              approfondie pour trouver LA solution parfaite pour vous.
             </p>
             <div className="space-y-4 pt-4">
               {benefits.map((benefit, index) => (
@@ -51,11 +55,11 @@ const WhyUs = () => {
                 <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent" />
                 <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <div className="text-3xl font-bold text-primary">+5</div>
+                    <div className="text-3xl font-bold text-primary">+15</div>
                     <div className="text-sm text-muted-foreground">Ans d'expérience</div>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-3xl font-bold text-secondary">50+</div>
+                    <div className="text-3xl font-bold text-secondary">100+</div>
                     <div className="text-sm text-muted-foreground">Clients satisfaits</div>
                   </div>
                 </div>

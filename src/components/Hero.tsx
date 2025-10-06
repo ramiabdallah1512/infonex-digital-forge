@@ -31,22 +31,29 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
             <Shield className="w-4 h-4 text-primary animate-glow" />
-            <span className="text-sm font-medium text-foreground">Solutions IT & Cybersécurité</span>
+            <span className="text-sm font-medium text-foreground">🚀 Plus de 15 ans d'expertise IT à votre service</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
-            Transformez votre
+            L'Excellence IT pour
             <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-glow">
-              Infrastructure IT
+              Toutes les Entreprises
             </span>
           </h1>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Expert en infogérance, cloud, cybersécurité et virtualisation. 
-            Nous propulsons votre entreprise vers le futur numérique.
-          </p>
+          <div className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto space-y-3">
+            <p className="font-semibold text-foreground">
+              TPE • PME • Grandes Entreprises
+            </p>
+            <p className="text-lg">
+              Un accompagnement personnalisé avec notre équipe d'experts pour transformer vos défis IT en succès stratégiques
+            </p>
+            <p className="text-base">
+              Infrastructure • Cloud • Cybersécurité • Infogérance • Consulting
+            </p>
+          </div>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-scale-in" style={{ animationDelay: "0.3s" }}>

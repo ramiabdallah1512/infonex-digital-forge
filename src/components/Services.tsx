@@ -91,6 +91,17 @@ const Services = () => {
           <p className="text-xl text-muted-foreground">
             Des solutions IT complètes et sur-mesure pour accompagner votre croissance
           </p>
+          <div className="flex flex-wrap justify-center gap-3 pt-4">
+            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold">
+              TPE & Startups
+            </span>
+            <span className="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold">
+              PME & ETI
+            </span>
+            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold">
+              Grandes Entreprises
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
