@@ -21,22 +21,23 @@ const Hero = () => {
       </div>
 
       {/* Animated gradient orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/30 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-glow" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/30 rounded-full blur-3xl animate-glow" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl animate-glow" style={{ animationDelay: "3s" }} />
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-            <Shield className="w-4 h-4 text-primary" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
+            <Shield className="w-4 h-4 text-primary animate-glow" />
             <span className="text-sm font-medium text-foreground">Solutions IT & Cybersécurité</span>
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
             Transformez votre
-            <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-glow">
               Infrastructure IT
             </span>
           </h1>
@@ -48,10 +49,10 @@ const Hero = () => {
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-scale-in" style={{ animationDelay: "0.3s" }}>
             <Button 
               size="lg" 
-              className="group bg-gradient-to-r from-primary to-secondary hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300"
+              className="group bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-300 hover:scale-110 animate-glow"
               onClick={scrollToContact}
             >
               Demander un devis
@@ -60,7 +61,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-primary/30 hover:bg-primary/5"
+              className="border-primary/30 hover:bg-primary/5 hover:scale-110 transition-all duration-300 hover:border-primary/50"
               asChild
             >
               <Link to="/services">
@@ -70,17 +71,17 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">99.9%</div>
+          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <div className="space-y-2 hover:scale-110 transition-transform duration-300">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">99.9%</div>
               <div className="text-sm text-muted-foreground">Disponibilité</div>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
+            <div className="space-y-2 hover:scale-110 transition-transform duration-300" style={{ animationDelay: "0.1s" }}>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">24/7</div>
               <div className="text-sm text-muted-foreground">Support</div>
             </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
+            <div className="space-y-2 hover:scale-110 transition-transform duration-300" style={{ animationDelay: "0.2s" }}>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">100%</div>
               <div className="text-sm text-muted-foreground">Sécurisé</div>
             </div>
           </div>
