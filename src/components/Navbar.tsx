@@ -23,6 +23,16 @@ const Navbar = () => {
     }
   };
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const menuItems = [
     { label: "Accueil", path: "/", type: "link" },
     { label: "Services", path: "/services", type: "link" },
@@ -36,21 +46,39 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link 
-            to="/"
+          <a 
+            href="/"
+            onClick={handleHomeClick}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img src={logo} alt="Infonex Logo" className="h-12 w-12" />
             <span className="text-2xl font-bold text-foreground">
               Info<span className="text-primary">nex</span>
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => {
               if (item.type === "link") {
                 const isActive = location.pathname === item.path;
+                if (item.path === "/") {
+                  return (
+                    <a
+                      key={item.label}
+                      href="/"
+                      onClick={handleHomeClick}
+                      className={`font-medium transition-colors relative group ${
+                        isActive ? 'text-primary' : 'text-foreground hover:text-primary'
+                      }`}
+                    >
+                      {item.label}
+                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                    </a>
+                  );
+                }
                 return (
                   <Link
                     key={item.label}
@@ -100,6 +128,20 @@ const Navbar = () => {
             {menuItems.map((item) => {
               if (item.type === "link") {
                 const isActive = location.pathname === item.path;
+                if (item.path === "/") {
+                  return (
+                    <a
+                      key={item.label}
+                      href="/"
+                      onClick={handleHomeClick}
+                      className={`block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium ${
+                        isActive ? 'text-primary' : ''
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                }
                 return (
                   <Link
                     key={item.label}
