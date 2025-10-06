@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
-  const words = ["IT", "AI", "Cloud", "Cybersécurité", "Infrastructure"];
+  const words = ["Infogérance", "Infrastructure", "Virtualisation", "Cloud", "Cybersécurité", "Consulting", "Web", "Sécurité"];
   const [currentWord, setCurrentWord] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
