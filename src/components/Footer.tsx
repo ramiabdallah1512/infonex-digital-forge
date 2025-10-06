@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,9 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Infonex
-            </h3>
+            <Link to="/" className="flex items-center gap-3">
+              <img src={logo} alt="Infonex Logo" className="h-10 w-10" />
+              <h3 className="text-2xl font-bold text-foreground">
+                Info<span className="text-primary">nex</span>
+              </h3>
+            </Link>
             <p className="text-muted-foreground">
               Votre partenaire de confiance pour toutes vos solutions IT et cybersécurité.
             </p>

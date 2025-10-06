@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/"
-            className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            Infonex
+            <img src={logo} alt="Infonex Logo" className="h-12 w-12" />
+            <span className="text-2xl font-bold text-foreground">
+              Info<span className="text-primary">nex</span>
+            </span>
           </Link>
 
           {/* Desktop Menu */}
