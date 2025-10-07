@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/infonex-logo.png";
+import logo from "@/assets/logo.png";
 
 interface NavbarProps {
   onQuoteClick: () => void;
