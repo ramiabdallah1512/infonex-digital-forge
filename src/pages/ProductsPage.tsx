@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Shield, Key, Cloud, HardDrive, Lock, Smartphone } from "lucide-react";
+import { Globe, Mail, Cloud, Shield, BarChart3, HeadphonesIcon, Server, Activity, Building2, Users, CheckCircle2, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import QuoteDialog from "@/components/QuoteDialog";
 
@@ -24,305 +23,315 @@ const ProductsPage = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Nos Produits & Licences
+                Nos Produits
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Solutions professionnelles pour sécuriser et optimiser votre infrastructure IT
+              <p className="text-xl text-muted-foreground mb-4">
+                Une gamme universelle, pensée pour tous.
+              </p>
+              <p className="text-base text-muted-foreground max-w-3xl mx-auto">
+                Chez InfoNex, nous avons conçu une série de produits numériques accessibles à tous les profils — particuliers, artisans, petites et moyennes entreprises, comme grandes organisations. Chaque solution allie simplicité, performance et sécurité, pour vous accompagner efficacement dans votre transformation digitale.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Products Tabs */}
-        <section className="py-16">
+        {/* Solutions Numériques pour Tous */}
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <Tabs defaultValue="auth" className="max-w-6xl mx-auto">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto">
-                <TabsTrigger value="auth" className="py-3">
-                  <Shield className="w-4 h-4 mr-2" />
-                  Authentification Double Facteur
-                </TabsTrigger>
-                <TabsTrigger value="licenses" className="py-3">
-                  <Key className="w-4 h-4 mr-2" />
-                  Licences Microsoft
-                </TabsTrigger>
-                <TabsTrigger value="cloud" className="py-3">
-                  <Cloud className="w-4 h-4 mr-2" />
-                  Solutions Cloud
-                </TabsTrigger>
-              </TabsList>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Numériques pour Tous</h2>
+                <p className="text-muted-foreground">
+                  Des outils simples, fiables et prêts à l'emploi pour démarrer votre présence digitale.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Globe className="w-5 h-5 text-primary" />
+                      InfoWeb Start
+                    </CardTitle>
+                    <CardDescription>
+                      Créez votre site vitrine professionnel en quelques clics.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Hébergement, design moderne, nom de domaine et assistance inclus. Idéal pour artisans, indépendants et petites structures.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
 
-              {/* Double Authentication Tab */}
-              <TabsContent value="auth" className="mt-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Lock className="w-5 h-5 text-primary" />
-                        Authentification VPN
-                      </CardTitle>
-                      <CardDescription>
-                        Sécurisez vos accès VPN avec une authentification à deux facteurs
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Protection contre les accès non autorisés</li>
-                        <li>✓ Compatible avec tous les clients VPN</li>
-                        <li>✓ Authentification via SMS, email ou application mobile</li>
-                        <li>✓ Gestion centralisée des utilisateurs</li>
-                        <li>✓ Logs d'audit détaillés</li>
-                      </ul>
-                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
-                    </CardContent>
-                  </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Mail className="w-5 h-5 text-primary" />
+                      InfoMail Pro
+                    </CardTitle>
+                    <CardDescription>
+                      Votre adresse e-mail professionnelle
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Votre adresse e-mail professionnelle (ex. contact@votreentreprise.fr) avec protection anti-spam et stockage cloud sécurisé. Image sérieuse et communication fiable pour tous.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Shield className="w-5 h-5 text-primary" />
-                        Authentification Active Directory
-                      </CardTitle>
-                      <CardDescription>
-                        Renforcez la sécurité de votre Active Directory
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Intégration transparente avec AD</li>
-                        <li>✓ Support multi-domaines</li>
-                        <li>✓ Authentification adaptative basée sur les risques</li>
-                        <li>✓ Compatible avec Azure AD</li>
-                        <li>✓ Reporting et conformité RGPD</li>
-                      </ul>
-                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
-                    </CardContent>
-                  </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Cloud className="w-5 h-5 text-primary" />
+                      InfoCloud Backup
+                    </CardTitle>
+                    <CardDescription>
+                      Sauvegardez automatiquement vos fichiers importants
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Sauvegardez automatiquement vos fichiers importants dans un espace sécurisé. Accédez à vos données depuis n'importe où, en toute sécurité.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Smartphone className="w-5 h-5 text-primary" />
-                        Authentification RDP
-                      </CardTitle>
-                      <CardDescription>
-                        Protégez vos connexions Bureau à distance
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Sécurisation des accès RDP/RDS</li>
-                        <li>✓ Support des sessions multi-utilisateurs</li>
-                        <li>✓ Authentification biométrique disponible</li>
-                        <li>✓ Détection des tentatives d'intrusion</li>
-                        <li>✓ Notifications en temps réel</li>
-                      </ul>
-                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
-                    </CardContent>
-                  </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Shield className="w-5 h-5 text-primary" />
+                      InfoSecure Home
+                    </CardTitle>
+                    <CardDescription>
+                      Protégez vos appareils et vos données
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Protégez vos appareils et vos données avec un pack de cybersécurité simple et efficace : VPN, antivirus, pare-feu léger et surveillance en ligne.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Key className="w-5 h-5 text-primary" />
-                        Solution Universelle MFA
-                      </CardTitle>
-                      <CardDescription>
-                        Authentification multi-facteurs pour tous vos services
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Compatible avec 200+ applications</li>
-                        <li>✓ SSO (Single Sign-On) intégré</li>
-                        <li>✓ Support SAML, OAuth, RADIUS</li>
-                        <li>✓ Authentification sans mot de passe</li>
-                        <li>✓ Tableau de bord administrateur complet</li>
-                      </ul>
-                      <Button className="mt-4 w-full" onClick={handleContactClick}>Demander un devis</Button>
-                    </CardContent>
-                  </Card>
+        {/* Solutions Professionnelles */}
+        <section className="py-16 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Professionnelles</h2>
+                <p className="text-muted-foreground">
+                  Des produits conçus pour améliorer la gestion, la sécurité et la performance de votre entreprise.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Globe className="w-5 h-5 text-primary" />
+                      InfoWeb Business
+                    </CardTitle>
+                    <CardDescription>
+                      Site web professionnel complet
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Site web professionnel complet avec référencement (SEO), hébergement optimisé et support technique. Une vitrine performante pour votre activité.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <BarChart3 className="w-5 h-5 text-primary" />
+                      InfoERP Light
+                    </CardTitle>
+                    <CardDescription>
+                      Simplifiez votre gestion quotidienne
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Simplifiez votre gestion quotidienne : clients, devis, factures, stocks et tableaux de bord. Une solution intuitive pour TPE et PME.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Lock className="w-5 h-5 text-primary" />
+                      InfoSecure Pro
+                    </CardTitle>
+                    <CardDescription>
+                      Sécurité avancée pour votre entreprise
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Sécurité avancée avec authentification à deux facteurs, gestion des accès et sauvegardes automatiques. Protégez vos systèmes et vos équipes.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <HeadphonesIcon className="w-5 h-5 text-primary" />
+                      InfoDesk
+                    </CardTitle>
+                    <CardDescription>
+                      Centralisez vos demandes clients et incidents IT
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Centralisez vos demandes clients et incidents IT dans une plateforme claire et collaborative. Améliorez votre service client et votre réactivité.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Solutions Avancées & Sur Mesure */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Avancées & Sur Mesure</h2>
+                <p className="text-muted-foreground">
+                  Pour les entreprises à forte exigence technologique et infrastructurelle.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Cloud className="w-5 h-5 text-primary" />
+                      InfoCloud Entreprise
+                    </CardTitle>
+                    <CardDescription>
+                      Migration, hébergement et gestion cloud
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Migration, hébergement et gestion cloud (AWS, Azure, GCP). Infrastructure scalable, fiable et hautement disponible.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Activity className="w-5 h-5 text-primary" />
+                      InfoMonitor 24/7
+                    </CardTitle>
+                    <CardDescription>
+                      Supervision continue de vos systèmes
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Supervision continue de vos serveurs, réseaux et applications. Alertes en temps réel et maintenance proactive.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Server className="w-5 h-5 text-primary" />
+                      InfoInfra
+                    </CardTitle>
+                    <CardDescription>
+                      Conception et déploiement d'architectures IT
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Conception et déploiement d'architectures IT sur mesure, adaptées à vos besoins de performance et de sécurité.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Building2 className="w-5 h-5 text-primary" />
+                      InfoConsult
+                    </CardTitle>
+                    <CardDescription>
+                      Accompagnement stratégique et transformation digitale
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Accompagnement stratégique, audit et transformation digitale de votre organisation.
+                    </p>
+                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pourquoi choisir InfoNex */}
+        <section className="py-16 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">Pourquoi choisir InfoNex ?</h2>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="flex gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Solutions évolutives</h3>
+                    <p className="text-sm text-muted-foreground">Adaptées à votre taille d'entreprise</p>
+                  </div>
                 </div>
-              </TabsContent>
-
-              {/* Microsoft Licenses Tab */}
-              <TabsContent value="licenses" className="mt-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Windows Server</CardTitle>
-                      <CardDescription>
-                        Licences serveur pour votre infrastructure
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Windows Server 2022 / 2019 / 2016</li>
-                        <li>✓ Licences CAL utilisateurs et périphériques</li>
-                        <li>✓ Remote Desktop Services (RDS)</li>
-                        <li>✓ Licences Core-based</li>
-                        <li>✓ Support et mises à jour inclus</li>
-                      </ul>
-                      <Button className="mt-4 w-full" variant="secondary">Voir les tarifs</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Microsoft 365</CardTitle>
-                      <CardDescription>
-                        Suite bureautique complète dans le cloud
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Office 365 (Word, Excel, PowerPoint, Outlook)</li>
-                        <li>✓ Teams, SharePoint, OneDrive</li>
-                        <li>✓ Exchange Online</li>
-                        <li>✓ Sécurité avancée et conformité</li>
-                        <li>✓ Licences Business, Entreprise, Education</li>
-                      </ul>
-                      <Button className="mt-4 w-full" variant="secondary">Voir les tarifs</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Windows Client</CardTitle>
-                      <CardDescription>
-                        Systèmes d'exploitation pour postes de travail
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Windows 11 Pro / Entreprise</li>
-                        <li>✓ Windows 10 Pro / Entreprise</li>
-                        <li>✓ Licences OEM et Volume</li>
-                        <li>✓ Mises à niveau disponibles</li>
-                        <li>✓ Déploiement et activation assistés</li>
-                      </ul>
-                      <Button className="mt-4 w-full" variant="secondary">Voir les tarifs</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>SQL Server</CardTitle>
-                      <CardDescription>
-                        Bases de données professionnelles
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ SQL Server 2022 / 2019</li>
-                        <li>✓ Éditions Standard et Enterprise</li>
-                        <li>✓ Licences Core ou Server+CAL</li>
-                        <li>✓ Haute disponibilité et réplication</li>
-                        <li>✓ Support technique Microsoft</li>
-                      </ul>
-                      <Button className="mt-4 w-full" variant="secondary">Voir les tarifs</Button>
-                    </CardContent>
-                  </Card>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Sécurité garantie</h3>
+                    <p className="text-sm text-muted-foreground">Protection et confidentialité de vos données</p>
+                  </div>
                 </div>
-              </TabsContent>
-
-              {/* Cloud Solutions Tab */}
-              <TabsContent value="cloud" className="mt-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Cloud className="w-5 h-5 text-primary" />
-                        Cloud Public Microsoft Azure
-                      </CardTitle>
-                      <CardDescription>
-                        Infrastructure cloud évolutive et sécurisée
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Machines virtuelles Windows et Linux</li>
-                        <li>✓ Stockage cloud redondant</li>
-                        <li>✓ Bases de données managées (SQL, MySQL, PostgreSQL)</li>
-                        <li>✓ Services d'IA et machine learning</li>
-                        <li>✓ Facturation à l'usage, scalabilité automatique</li>
-                        <li>✓ Datacenters en Europe pour conformité RGPD</li>
-                      </ul>
-                      <Button className="mt-4 w-full">Consulter nos offres</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <HardDrive className="w-5 h-5 text-primary" />
-                        Cloud Privé sur Site
-                      </CardTitle>
-                      <CardDescription>
-                        Infrastructure cloud dans vos locaux
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Plateforme Hyper-V ou VMware</li>
-                        <li>✓ Contrôle total de vos données</li>
-                        <li>✓ Haute disponibilité et sauvegarde</li>
-                        <li>✓ Infrastructure personnalisée</li>
-                        <li>✓ Conformité réglementaire garantie</li>
-                        <li>✓ Support et maintenance inclus</li>
-                      </ul>
-                      <Button className="mt-4 w-full">Consulter nos offres</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Cloud className="w-5 h-5 text-primary" />
-                        Cloud Hybride
-                      </CardTitle>
-                      <CardDescription>
-                        Le meilleur des deux mondes
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Données sensibles sur cloud privé</li>
-                        <li>✓ Services publics pour la scalabilité</li>
-                        <li>✓ Azure Stack pour l'hybride Microsoft</li>
-                        <li>✓ Connexion sécurisée site-to-site</li>
-                        <li>✓ Gestion unifiée des ressources</li>
-                        <li>✓ Optimisation des coûts</li>
-                      </ul>
-                      <Button className="mt-4 w-full">Consulter nos offres</Button>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Shield className="w-5 h-5 text-primary" />
-                        Sauvegarde Cloud
-                      </CardTitle>
-                      <CardDescription>
-                        Protection de vos données critiques
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li>✓ Sauvegarde automatique et chiffrée</li>
-                        <li>✓ Stockage géo-redondant</li>
-                        <li>✓ Restauration rapide et granulaire</li>
-                        <li>✓ Rétention personnalisable</li>
-                        <li>✓ Compatible serveurs, VMs, postes de travail</li>
-                        <li>✓ Reporting et alertes</li>
-                      </ul>
-                      <Button className="mt-4 w-full">Consulter nos offres</Button>
-                    </CardContent>
-                  </Card>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Accompagnement humain</h3>
+                    <p className="text-sm text-muted-foreground">Support technique disponible</p>
+                  </div>
                 </div>
-              </TabsContent>
-            </Tabs>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Technologie de pointe</h3>
+                    <p className="text-sm text-muted-foreground">Accessible à tous</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
