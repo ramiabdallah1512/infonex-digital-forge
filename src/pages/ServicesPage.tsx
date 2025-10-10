@@ -221,11 +221,13 @@ const ServicesPage = () => {
                       </CardContent>
                     </Card>
 
-                    <Button asChild size="lg" className="group">
-                      <Link to="/#contact">
-                        Demander un Devis
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                    <Button 
+                      size="lg" 
+                      className="group"
+                      onClick={() => setQuoteDialogOpen(true)}
+                    >
+                      Demander un Devis
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
                 </div>
