@@ -3,6 +3,7 @@ import { Shield, Lock, Server, Smartphone, CheckCircle2, AlertTriangle } from "l
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import secureGateHero from "@/assets/securegate-hero.jpg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -35,21 +36,30 @@ const ProductsPage = () => {
         <section className="relative bg-gradient-to-br from-destructive/20 via-background to-primary/10 py-20 overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/20 rounded-full px-6 py-2 mb-6 animate-pulse">
-                <AlertTriangle className="w-5 h-5 text-destructive" />
-                <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="text-center md:text-left">
+                <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/20 rounded-full px-6 py-2 mb-6 animate-pulse">
+                  <AlertTriangle className="w-5 h-5 text-destructive" />
+                  <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
+                </div>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in">
+                  SecureGate Pro
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
+                  La double authentification professionnelle qui protège vraiment vos accès
+                </p>
+                <p className="text-base text-muted-foreground mb-8">
+                  Face à l'augmentation massive des cyberattaques en 2025, la simple protection par mot de passe ne suffit plus. 
+                  Chaque jour, des entreprises sont victimes de piratages qui auraient pu être évités avec une authentification à deux facteurs.
+                </p>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in">
-                SecureGate Pro
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
-                La double authentification professionnelle qui protège vraiment vos accès
-              </p>
-              <p className="text-base text-muted-foreground max-w-3xl mx-auto mb-8">
-                Face à l'augmentation massive des cyberattaques en 2025, la simple protection par mot de passe ne suffit plus. 
-                Chaque jour, des entreprises sont victimes de piratages qui auraient pu être évités avec une authentification à deux facteurs.
-              </p>
+              <div className="flex justify-center">
+                <img 
+                  src={secureGateHero} 
+                  alt="SecureGate Pro - Authentification à deux facteurs" 
+                  className="w-full max-w-lg rounded-2xl shadow-2xl animate-fade-in hover-scale transition-all duration-500"
+                />
+              </div>
             </div>
           </div>
         </section>
