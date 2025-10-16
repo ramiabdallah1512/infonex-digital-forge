@@ -7,10 +7,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import QuoteDialog from "@/components/QuoteDialog";
+import ContactDialog from "@/components/ContactDialog";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const [userCount, setUserCount] = useState([5]);
 
   const calculatePrice = (users: number) => {
@@ -39,7 +41,7 @@ const ProductsPage = () => {
                 <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in">
-                InfoSecure 2FA
+                SecureGate Pro
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
                 La double authentification professionnelle qui protège vraiment vos accès
@@ -211,12 +213,21 @@ const ProductsPage = () => {
                           </div>
                         </div>
 
-                        <Button 
-                          className="w-full h-12 text-lg font-semibold" 
-                          onClick={() => setQuoteDialogOpen(true)}
-                        >
-                          {pricing.isQuote ? "Demander un devis" : "Commander maintenant"}
-                        </Button>
+                        <div className="space-y-3">
+                          <Button 
+                            className="w-full h-12 text-lg font-semibold" 
+                            onClick={() => setQuoteDialogOpen(true)}
+                          >
+                            {pricing.isQuote ? "Demander un devis" : "Commander maintenant"}
+                          </Button>
+                          <Button 
+                            variant="outline"
+                            className="w-full h-12 text-lg font-semibold border-2 border-primary/30 hover:bg-primary/10" 
+                            onClick={() => setContactDialogOpen(true)}
+                          >
+                            Demander une démo
+                          </Button>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -254,7 +265,7 @@ const ProductsPage = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-primary">
                       <Shield className="w-6 h-6" />
-                      Avec InfoSecure 2FA
+                      Avec SecureGate Pro
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2 text-sm">
@@ -277,7 +288,7 @@ const ProductsPage = () => {
               Ne laissez plus vos accès vulnérables
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-              Rejoignez les centaines d'entreprises qui protègent leurs systèmes avec InfoSecure 2FA. 
+              Rejoignez les centaines d'entreprises qui protègent leurs systèmes avec SecureGate Pro. 
               Notre équipe vous accompagne de A à Z dans la mise en place.
             </p>
             <Button 
@@ -293,6 +304,11 @@ const ProductsPage = () => {
       </main>
       <Footer />
       <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
+      <ContactDialog 
+        open={contactDialogOpen} 
+        onOpenChange={setContactDialogOpen}
+        defaultSubject="SecureGate Pro - Demande de démo"
+      />
     </div>
   );
 };

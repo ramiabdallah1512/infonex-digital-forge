@@ -189,6 +189,7 @@ const Contact = () => {
                       <SelectValue placeholder="Sélectionnez un objet" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="SecureGate Pro - Demande d'information">SecureGate Pro - Demande d'information</SelectItem>
                       <SelectItem value="Infrastructure IT & Réseaux">Infrastructure IT & Réseaux</SelectItem>
                       <SelectItem value="Cybersécurité">Cybersécurité</SelectItem>
                       <SelectItem value="Cloud & Virtualisation">Cloud & Virtualisation</SelectItem>
