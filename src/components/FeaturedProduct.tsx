@@ -107,7 +107,10 @@ const FeaturedProduct = () => {
                 <div className="space-y-3">
                   <Button 
                     className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 group"
-                    onClick={() => navigate('/products')}
+                    onClick={() => {
+                      navigate('/products');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
                     Découvrir SecureGate Pro
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
