@@ -1,351 +1,292 @@
 import { useState } from "react";
-import { Globe, Mail, Cloud, Shield, BarChart3, HeadphonesIcon, Server, Activity, Building2, Users, CheckCircle2, Lock } from "lucide-react";
+import { Shield, Lock, Server, Smartphone, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import QuoteDialog from "@/components/QuoteDialog";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
+  const [userCount, setUserCount] = useState([5]);
+
+  const calculatePrice = (users: number) => {
+    if (users < 10) return { price: users * 5, period: "/mois", isQuote: false };
+    if (users <= 50) return { price: users * 4, period: "/mois", isQuote: false };
+    return { price: 0, period: "", isQuote: true };
+  };
+
+  const pricing = calculatePrice(userCount[0]);
 
   const handleContactClick = () => {
     navigate('/', { state: { scrollTo: 'contact' } });
   };
+
   return (
     <div className="min-h-screen">
       <Navbar onQuoteClick={() => setQuoteDialogOpen(true)} />
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Nos Produits
+        {/* Hero Section - Security Alert */}
+        <section className="relative bg-gradient-to-br from-destructive/20 via-background to-primary/10 py-20 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/20 rounded-full px-6 py-2 mb-6 animate-pulse">
+                <AlertTriangle className="w-5 h-5 text-destructive" />
+                <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in">
+                InfoSecure 2FA
               </h1>
-              <p className="text-xl text-muted-foreground mb-4">
-                Une gamme universelle, pensée pour tous.
+              <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
+                La double authentification professionnelle qui protège vraiment vos accès
               </p>
-              <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                Chez InfoNex, nous avons conçu une série de produits numériques accessibles à tous les profils — particuliers, artisans, petites et moyennes entreprises, comme grandes organisations. Chaque solution allie simplicité, performance et sécurité, pour vous accompagner efficacement dans votre transformation digitale.
+              <p className="text-base text-muted-foreground max-w-3xl mx-auto mb-8">
+                Face à l'augmentation massive des cyberattaques en 2025, la simple protection par mot de passe ne suffit plus. 
+                Chaque jour, des entreprises sont victimes de piratages qui auraient pu être évités avec une authentification à deux facteurs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Solutions Numériques pour Tous */}
+        {/* Statistics Section */}
+        <section className="py-12 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+              <div className="animate-fade-in">
+                <div className="text-4xl font-bold text-destructive mb-2">+300%</div>
+                <p className="text-sm text-muted-foreground">Augmentation des cyberattaques en 2024</p>
+              </div>
+              <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
+                <div className="text-4xl font-bold text-primary mb-2">81%</div>
+                <p className="text-sm text-muted-foreground">Des violations dues à des mots de passe faibles</p>
+              </div>
+              <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <div className="text-4xl font-bold text-accent mb-2">99.9%</div>
+                <p className="text-sm text-muted-foreground">De protection avec la 2FA</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Main Product Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Numériques pour Tous</h2>
-                <p className="text-muted-foreground">
-                  Des outils simples, fiables et prêts à l'emploi pour démarrer votre présence digitale.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Globe className="w-5 h-5 text-primary" />
-                      InfoWeb Start
-                    </CardTitle>
-                    <CardDescription>
-                      Créez votre site vitrine professionnel en quelques clics.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Hébergement, design moderne, nom de domaine et assistance inclus. Idéal pour artisans, indépendants et petites structures.
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                
+                {/* Left: Product Features */}
+                <div className="space-y-8">
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                      Une protection universelle pour tous vos accès
+                    </h2>
+                    <p className="text-muted-foreground mb-8">
+                      InfoSecure 2FA est la solution d'authentification à deux facteurs qui sécurise l'ensemble de vos points d'accès critiques avec des codes OTP (One-Time Password) impossibles à pirater.
                     </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
+                  </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Mail className="w-5 h-5 text-primary" />
-                      InfoMail Pro
-                    </CardTitle>
-                    <CardDescription>
-                      Votre adresse e-mail professionnelle
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Votre adresse e-mail professionnelle (ex. contact@votreentreprise.fr) avec protection anti-spam et stockage cloud sécurisé. Image sérieuse et communication fiable pour tous.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
+                  <div className="space-y-6">
+                    <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3 text-lg">
+                          <div className="p-2 bg-primary/10 rounded-lg">
+                            <Server className="w-5 h-5 text-primary" />
+                          </div>
+                          Serveurs & Infrastructure
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          Protection SSH, serveurs Linux/Windows, bases de données et systèmes critiques
+                        </p>
+                      </CardContent>
+                    </Card>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Cloud className="w-5 h-5 text-primary" />
-                      InfoCloud Backup
-                    </CardTitle>
-                    <CardDescription>
-                      Sauvegardez automatiquement vos fichiers importants
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Sauvegardez automatiquement vos fichiers importants dans un espace sécurisé. Accédez à vos données depuis n'importe où, en toute sécurité.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
+                    <Card className="border-accent/20 hover:border-accent/40 transition-all hover:shadow-lg">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3 text-lg">
+                          <div className="p-2 bg-accent/10 rounded-lg">
+                            <Smartphone className="w-5 h-5 text-accent" />
+                          </div>
+                          Postes Utilisateurs
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          Sécurisation des sessions Windows, Mac, Linux pour tous vos collaborateurs
+                        </p>
+                      </CardContent>
+                    </Card>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-primary" />
-                      InfoSecure Home
-                    </CardTitle>
-                    <CardDescription>
-                      Protégez vos appareils et vos données
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Protégez vos appareils et vos données avec un pack de cybersécurité simple et efficace : VPN, antivirus, pare-feu léger et surveillance en ligne.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
+                    <Card className="border-secondary/20 hover:border-secondary/40 transition-all hover:shadow-lg">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-3 text-lg">
+                          <div className="p-2 bg-secondary/10 rounded-lg">
+                            <Lock className="w-5 h-5 text-secondary" />
+                          </div>
+                          Accès à Distance
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          VPN, RDP, accès SSH et tous vos tunnels sécurisés
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Right: Pricing Calculator */}
+                <div className="sticky top-24">
+                  <Card className="border-2 border-primary/30 shadow-xl">
+                    <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
+                      <CardTitle className="text-2xl text-center">
+                        <Shield className="w-8 h-8 mx-auto mb-3 text-primary" />
+                        Configurez votre protection
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-8">
+                      <div className="space-y-6">
+                        <div>
+                          <label className="text-sm font-medium mb-4 block">
+                            Nombre d'utilisateurs à protéger
+                          </label>
+                          <Slider
+                            value={userCount}
+                            onValueChange={setUserCount}
+                            min={1}
+                            max={100}
+                            step={1}
+                            className="mb-4"
+                          />
+                          <div className="flex justify-between items-center text-sm text-muted-foreground">
+                            <span>1 utilisateur</span>
+                            <span className="font-bold text-2xl text-primary">{userCount[0]}</span>
+                            <span>100+ utilisateurs</span>
+                          </div>
+                        </div>
+
+                        <div className="bg-primary/5 rounded-lg p-6 text-center border border-primary/20">
+                          {pricing.isQuote ? (
+                            <div>
+                              <div className="text-3xl font-bold text-primary mb-2">Sur Devis</div>
+                              <p className="text-sm text-muted-foreground">
+                                Pour plus de 50 utilisateurs, contactez-nous pour une offre personnalisée
+                              </p>
+                            </div>
+                          ) : (
+                            <div>
+                              <div className="text-sm text-muted-foreground mb-1">À partir de</div>
+                              <div className="text-5xl font-bold text-primary mb-1">
+                                {pricing.price}€
+                              </div>
+                              <div className="text-muted-foreground">{pricing.period}</div>
+                              <div className="text-xs text-muted-foreground mt-2">
+                                {userCount[0] < 10 ? "5€/utilisateur/mois" : "4€/utilisateur/mois"}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="space-y-3 pt-4 border-t">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Codes OTP sécurisés (TOTP/HOTP)</span>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Installation et configuration incluses</span>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Accompagnement personnalisé</span>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm font-semibold text-primary">Support prioritaire 24/7</span>
+                          </div>
+                        </div>
+
+                        <Button 
+                          className="w-full h-12 text-lg font-semibold" 
+                          onClick={() => setQuoteDialogOpen(true)}
+                        >
+                          {pricing.isQuote ? "Demander un devis" : "Commander maintenant"}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Solutions Professionnelles */}
+        {/* Why 2FA Section */}
         <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Professionnelles</h2>
-                <p className="text-muted-foreground">
-                  Des produits conçus pour améliorer la gestion, la sécurité et la performance de votre entreprise.
-                </p>
-              </div>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+                Pourquoi la double authentification est indispensable ?
+              </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card>
+                <Card className="bg-destructive/5 border-destructive/20">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Globe className="w-5 h-5 text-primary" />
-                      InfoWeb Business
+                    <CardTitle className="flex items-center gap-2 text-destructive">
+                      <AlertTriangle className="w-6 h-6" />
+                      Sans 2FA
                     </CardTitle>
-                    <CardDescription>
-                      Site web professionnel complet
-                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Site web professionnel complet avec référencement (SEO), hébergement optimisé et support technique. Une vitrine performante pour votre activité.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  <CardContent className="space-y-2 text-sm">
+                    <p>❌ Mots de passe facilement piratés</p>
+                    <p>❌ Accès non autorisés aux données</p>
+                    <p>❌ Risque de ransomware élevé</p>
+                    <p>❌ Conformité RGPD non garantie</p>
+                    <p>❌ Réputation de l'entreprise menacée</p>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="bg-primary/5 border-primary/20">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <BarChart3 className="w-5 h-5 text-primary" />
-                      InfoERP Light
+                    <CardTitle className="flex items-center gap-2 text-primary">
+                      <Shield className="w-6 h-6" />
+                      Avec InfoSecure 2FA
                     </CardTitle>
-                    <CardDescription>
-                      Simplifiez votre gestion quotidienne
-                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Simplifiez votre gestion quotidienne : clients, devis, factures, stocks et tableaux de bord. Une solution intuitive pour TPE et PME.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
+                  <CardContent className="space-y-2 text-sm">
+                    <p>✅ Protection renforcée contre le piratage</p>
+                    <p>✅ Accès sécurisés en temps réel</p>
+                    <p>✅ Blocage automatique des intrusions</p>
+                    <p>✅ Conformité réglementaire assurée</p>
+                    <p>✅ Confiance clients renforcée</p>
                   </CardContent>
                 </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Lock className="w-5 h-5 text-primary" />
-                      InfoSecure Pro
-                    </CardTitle>
-                    <CardDescription>
-                      Sécurité avancée pour votre entreprise
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Sécurité avancée avec authentification à deux facteurs, gestion des accès et sauvegardes automatiques. Protégez vos systèmes et vos équipes.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <HeadphonesIcon className="w-5 h-5 text-primary" />
-                      InfoDesk
-                    </CardTitle>
-                    <CardDescription>
-                      Centralisez vos demandes clients et incidents IT
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Centralisez vos demandes clients et incidents IT dans une plateforme claire et collaborative. Améliorez votre service client et votre réactivité.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Solutions Avancées & Sur Mesure */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Solutions Avancées & Sur Mesure</h2>
-                <p className="text-muted-foreground">
-                  Pour les entreprises à forte exigence technologique et infrastructurelle.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Cloud className="w-5 h-5 text-primary" />
-                      InfoCloud Entreprise
-                    </CardTitle>
-                    <CardDescription>
-                      Migration, hébergement et gestion cloud
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Migration, hébergement et gestion cloud (AWS, Azure, GCP). Infrastructure scalable, fiable et hautement disponible.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Activity className="w-5 h-5 text-primary" />
-                      InfoMonitor 24/7
-                    </CardTitle>
-                    <CardDescription>
-                      Supervision continue de vos systèmes
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Supervision continue de vos serveurs, réseaux et applications. Alertes en temps réel et maintenance proactive.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Server className="w-5 h-5 text-primary" />
-                      InfoInfra
-                    </CardTitle>
-                    <CardDescription>
-                      Conception et déploiement d'architectures IT
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Conception et déploiement d'architectures IT sur mesure, adaptées à vos besoins de performance et de sécurité.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Building2 className="w-5 h-5 text-primary" />
-                      InfoConsult
-                    </CardTitle>
-                    <CardDescription>
-                      Accompagnement stratégique et transformation digitale
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Accompagnement stratégique, audit et transformation digitale de votre organisation.
-                    </p>
-                    <Button className="w-full" onClick={() => setQuoteDialogOpen(true)}>Demander un devis</Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pourquoi choisir InfoNex */}
-        <section className="py-16 bg-primary/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">Pourquoi choisir InfoNex ?</h2>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">Solutions évolutives</h3>
-                    <p className="text-sm text-muted-foreground">Adaptées à votre taille d'entreprise</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">Sécurité garantie</h3>
-                    <p className="text-sm text-muted-foreground">Protection et confidentialité de vos données</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">Accompagnement humain</h3>
-                    <p className="text-sm text-muted-foreground">Support technique disponible</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold mb-1">Technologie de pointe</h3>
-                    <p className="text-sm text-muted-foreground">Accessible à tous</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="bg-primary/5 py-16">
+        <section className="bg-gradient-to-br from-primary via-accent to-primary py-16 text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Besoin d'aide pour choisir ?
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ne laissez plus vos accès vulnérables
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Nos experts sont à votre disposition pour vous conseiller et vous proposer la solution adaptée à vos besoins
+            <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+              Rejoignez les centaines d'entreprises qui protègent leurs systèmes avec InfoSecure 2FA. 
+              Notre équipe vous accompagne de A à Z dans la mise en place.
             </p>
-            <Button size="lg" onClick={handleContactClick}>
-              Contactez-nous
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="h-14 px-8 text-lg font-semibold"
+              onClick={() => setQuoteDialogOpen(true)}
+            >
+              Démarrer maintenant
             </Button>
           </div>
         </section>
