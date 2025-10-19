@@ -3,7 +3,7 @@ import { Shield, Lock, Server, Smartphone, CheckCircle2, AlertTriangle } from "l
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import secureGateHero from "@/assets/securegate-hero.jpg";
+import secureGateHero from "@/assets/securegate-hero-new.jpg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -17,8 +17,8 @@ const ProductsPage = () => {
   const [userCount, setUserCount] = useState([5]);
 
   const calculatePrice = (users: number) => {
-    if (users < 10) return { price: users * 5, period: "/mois", isQuote: false };
-    if (users <= 50) return { price: users * 4, period: "/mois", isQuote: false };
+    if (users < 10) return { price: users * 2.99, period: "/mois", isQuote: false };
+    if (users <= 50) return { price: users * 2.50, period: "/mois", isQuote: false };
     return { price: 0, period: "", isQuote: true };
   };
 
@@ -35,16 +35,18 @@ const ProductsPage = () => {
         {/* Hero Section - Security Alert */}
         <section className="relative bg-gradient-to-br from-destructive/20 via-background to-primary/10 py-20 overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="text-center md:text-left">
-                <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/20 rounded-full px-6 py-2 mb-6 animate-pulse">
-                  <AlertTriangle className="w-5 h-5 text-destructive" />
-                  <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
-                </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in">
-                  SecureGate Pro
-                </h1>
+                <div className="text-center md:text-left space-y-6">
+                  <div className="inline-flex items-center gap-2 bg-destructive/10 border border-destructive/20 rounded-full px-6 py-2 animate-pulse backdrop-blur-sm">
+                    <AlertTriangle className="w-5 h-5 text-destructive" />
+                    <span className="text-sm font-semibold text-destructive">Alerte Sécurité</span>
+                  </div>
+                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-in leading-tight">
+                    SecureGate Pro
+                  </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
                   La double authentification professionnelle qui protège vraiment vos accès
                 </p>
@@ -53,11 +55,12 @@ const ProductsPage = () => {
                   Chaque jour, des entreprises sont victimes de piratages qui auraient pu être évités avec une authentification à deux facteurs.
                 </p>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-2xl opacity-50" />
                 <img 
                   src={secureGateHero} 
                   alt="SecureGate Pro - Authentification à deux facteurs" 
-                  className="w-full max-w-lg rounded-2xl shadow-2xl animate-fade-in hover-scale transition-all duration-500"
+                  className="w-full max-w-lg rounded-2xl shadow-2xl animate-fade-in hover-scale transition-all duration-500 relative z-10 border-2 border-primary/20"
                 />
               </div>
             </div>
@@ -102,15 +105,15 @@ const ProductsPage = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-3 text-lg">
-                          <div className="p-2 bg-primary/10 rounded-lg">
-                            <Server className="w-5 h-5 text-primary" />
-                          </div>
-                          Serveurs & Infrastructure
-                        </CardTitle>
-                      </CardHeader>
+                  <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/20 group backdrop-blur-sm bg-card/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-lg">
+                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all group-hover:scale-110">
+                          <Server className="w-5 h-5 text-primary" />
+                        </div>
+                        Serveurs & Infrastructure
+                      </CardTitle>
+                    </CardHeader>
                       <CardContent>
                         <p className="text-sm text-muted-foreground">
                           Protection SSH, serveurs Linux/Windows, bases de données et systèmes critiques
@@ -118,15 +121,15 @@ const ProductsPage = () => {
                       </CardContent>
                     </Card>
 
-                    <Card className="border-accent/20 hover:border-accent/40 transition-all hover:shadow-lg">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-3 text-lg">
-                          <div className="p-2 bg-accent/10 rounded-lg">
-                            <Smartphone className="w-5 h-5 text-accent" />
-                          </div>
-                          Postes Utilisateurs
-                        </CardTitle>
-                      </CardHeader>
+                  <Card className="border-accent/20 hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/20 group backdrop-blur-sm bg-card/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-lg">
+                        <div className="p-2 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-all group-hover:scale-110">
+                          <Smartphone className="w-5 h-5 text-accent" />
+                        </div>
+                        Postes Utilisateurs
+                      </CardTitle>
+                    </CardHeader>
                       <CardContent>
                         <p className="text-sm text-muted-foreground">
                           Sécurisation des sessions Windows, Mac, Linux pour tous vos collaborateurs
@@ -134,15 +137,15 @@ const ProductsPage = () => {
                       </CardContent>
                     </Card>
 
-                    <Card className="border-secondary/20 hover:border-secondary/40 transition-all hover:shadow-lg">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-3 text-lg">
-                          <div className="p-2 bg-secondary/10 rounded-lg">
-                            <Lock className="w-5 h-5 text-secondary" />
-                          </div>
-                          Accès à Distance
-                        </CardTitle>
-                      </CardHeader>
+                  <Card className="border-secondary/20 hover:border-secondary/40 transition-all hover:shadow-lg hover:shadow-secondary/20 group backdrop-blur-sm bg-card/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-lg">
+                        <div className="p-2 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-all group-hover:scale-110">
+                          <Lock className="w-5 h-5 text-secondary" />
+                        </div>
+                        Accès à Distance
+                      </CardTitle>
+                    </CardHeader>
                       <CardContent>
                         <p className="text-sm text-muted-foreground">
                           VPN, RDP, accès SSH et tous vos tunnels sécurisés
@@ -154,10 +157,10 @@ const ProductsPage = () => {
 
                 {/* Right: Pricing Calculator */}
                 <div className="sticky top-24">
-                  <Card className="border-2 border-primary/30 shadow-xl">
+                  <Card className="border-2 border-primary/30 shadow-xl backdrop-blur-sm bg-card/80 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
                     <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
                       <CardTitle className="text-2xl text-center">
-                        <Shield className="w-8 h-8 mx-auto mb-3 text-primary" />
+                        <Shield className="w-8 h-8 mx-auto mb-3 text-primary animate-pulse" />
                         Configurez votre protection
                       </CardTitle>
                     </CardHeader>
@@ -198,7 +201,7 @@ const ProductsPage = () => {
                               </div>
                               <div className="text-muted-foreground">{pricing.period}</div>
                               <div className="text-xs text-muted-foreground mt-2">
-                                {userCount[0] < 10 ? "5€/utilisateur/mois" : "4€/utilisateur/mois"}
+                                {userCount[0] < 10 ? "2,99€/utilisateur/mois" : "2,50€/utilisateur/mois"}
                               </div>
                             </div>
                           )}
@@ -225,14 +228,15 @@ const ProductsPage = () => {
 
                         <div className="space-y-3">
                           <Button 
-                            className="w-full h-12 text-lg font-semibold" 
+                            className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 group" 
                             onClick={() => setQuoteDialogOpen(true)}
                           >
                             {pricing.isQuote ? "Demander un devis" : "Commander maintenant"}
+                            <Shield className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                           </Button>
                           <Button 
                             variant="outline"
-                            className="w-full h-12 text-lg font-semibold border-2 border-primary/30 hover:bg-primary/10" 
+                            className="w-full h-12 text-lg font-semibold border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all" 
                             onClick={() => setContactDialogOpen(true)}
                           >
                             Demander une démo
