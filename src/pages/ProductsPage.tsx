@@ -17,8 +17,8 @@ const ProductsPage = () => {
   const [userCount, setUserCount] = useState([5]);
 
   const calculatePrice = (users: number) => {
-    if (users < 10) return { price: users * 2.99, period: "/mois", isQuote: false };
-    if (users <= 50) return { price: users * 2.50, period: "/mois", isQuote: false };
+    if (users < 50) return { price: users * 3, period: "/mois", isQuote: false };
+    if (users <= 100) return { price: users * 2, period: "/mois", isQuote: false };
     return { price: 0, period: "", isQuote: true };
   };
 
@@ -190,7 +190,7 @@ const ProductsPage = () => {
                             <div>
                               <div className="text-3xl font-bold text-primary mb-2">Sur Devis</div>
                               <p className="text-sm text-muted-foreground">
-                                Pour plus de 50 utilisateurs, contactez-nous pour une offre personnalisée
+                                Pour plus de 100 utilisateurs, contactez-nous pour une offre personnalisée
                               </p>
                             </div>
                           ) : (
@@ -201,7 +201,7 @@ const ProductsPage = () => {
                               </div>
                               <div className="text-muted-foreground">{pricing.period}</div>
                               <div className="text-xs text-muted-foreground mt-2">
-                                {userCount[0] < 10 ? "2,99€/utilisateur/mois" : "2,50€/utilisateur/mois"}
+                                {userCount[0] < 50 ? "3€/utilisateur/mois" : "2€/utilisateur/mois"}
                               </div>
                             </div>
                           )}
