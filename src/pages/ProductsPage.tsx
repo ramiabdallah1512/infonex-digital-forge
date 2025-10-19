@@ -188,9 +188,9 @@ const ProductsPage = () => {
                         <div className="bg-primary/5 rounded-lg p-6 text-center border border-primary/20">
                           {pricing.isQuote ? (
                             <div>
-                              <div className="text-3xl font-bold text-primary mb-2">Sur Devis</div>
+                              <div className="text-3xl font-bold text-primary mb-2">Prix Avantageux</div>
                               <p className="text-sm text-muted-foreground">
-                                Pour plus de 100 utilisateurs, contactez-nous pour une offre personnalisée
+                                Pour plus de 100 utilisateurs, contactez-nous pour bénéficier d'un prix avantageux personnalisé
                               </p>
                             </div>
                           ) : (
