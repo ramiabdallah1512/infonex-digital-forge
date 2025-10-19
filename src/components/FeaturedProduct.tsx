@@ -54,8 +54,8 @@ const FeaturedProduct = () => {
                       <div className="opacity-90">Support</div>
                     </div>
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                      <div className="text-2xl font-bold">5€</div>
-                      <div className="opacity-90">Dès 5€/mois</div>
+                      <div className="text-2xl font-bold">3€</div>
+                      <div className="opacity-90">Dès 3€/mois</div>
                     </div>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ const FeaturedProduct = () => {
 
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 mb-8">
                   <p className="text-sm font-semibold text-primary mb-2">✨ Offre de lancement</p>
-                  <p className="text-2xl font-bold mb-1">À partir de 5€/utilisateur/mois</p>
+                  <p className="text-2xl font-bold mb-1">À partir de 3€/utilisateur/mois</p>
                   <p className="text-sm text-muted-foreground">Installation, configuration et support inclus</p>
                 </div>
 
