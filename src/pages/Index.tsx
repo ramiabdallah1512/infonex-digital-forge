@@ -9,6 +9,7 @@ import Partners from "@/components/Partners";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QuoteDialog from "@/components/QuoteDialog";
+import PromoAnnouncement from "@/components/PromoAnnouncement";
 
 const Index = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ const Index = () => {
       </main>
       <Footer />
       <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
+      <PromoAnnouncement />
     </div>
   );
 };
