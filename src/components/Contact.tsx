@@ -116,6 +116,23 @@ const Contact = () => {
             <Card className="border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-secondary" />
+                  Mobile
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <a 
+                  href="tel:0759909999" 
+                  className="text-lg text-primary hover:underline"
+                >
+                  07 59 90 99 99
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-accent" />
                   Disponibilité
                 </CardTitle>
