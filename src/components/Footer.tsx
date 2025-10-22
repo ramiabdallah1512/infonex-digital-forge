@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
@@ -57,10 +57,11 @@ const Footer = () => {
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Contact</h4>
+            <p className="font-semibold text-foreground">Infonex RA - AB</p>
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Épinay-sur-Orge</span>
+                <span>1 Pass. Amélie de Pitteurs<br />91360 Épinay-sur-Orge</span>
               </div>
               <a 
                 href="mailto:contact@infonex.fr" 
@@ -75,6 +76,13 @@ const Footer = () => {
               >
                 <Phone className="w-4 h-4" />
                 09 61 08 51 66
+              </a>
+              <a 
+                href="tel:0759909999" 
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Smartphone className="w-4 h-4" />
+                07 59 90 99 99
               </a>
             </div>
           </div>
