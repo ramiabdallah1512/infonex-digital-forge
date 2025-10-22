@@ -107,11 +107,12 @@ const RGPDPage = () => {
                 données personnelles, vous pouvez nous contacter :
               </p>
               <div className="bg-muted/50 p-6 rounded-lg mt-4 space-y-2">
-                <p className="font-semibold">Infonex</p>
+                <p className="font-semibold">Infonex RA - AB</p>
                 <p className="text-muted-foreground">1 Pass. Amélie de Pitteurs</p>
                 <p className="text-muted-foreground">91360 Épinay-sur-Orge</p>
                 <p className="text-muted-foreground">Email: <a href="mailto:contact@infonex.fr" className="text-primary hover:underline">contact@infonex.fr</a></p>
                 <p className="text-muted-foreground">Téléphone: <a href="tel:0961085166" className="text-primary hover:underline">09 61 08 51 66</a></p>
+                <p className="text-muted-foreground">Mobile: <a href="tel:0759909999" className="text-primary hover:underline">07 59 90 99 99</a></p>
               </div>
             </section>
 
