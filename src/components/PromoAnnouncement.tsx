@@ -73,7 +73,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
             <a href="tel:0759909999">
               <Button 
                 variant="outline"
-                className="w-full border-white/50 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 group"
+                className="w-full border-yellow-300/80 bg-yellow-300/10 text-yellow-300 hover:bg-yellow-300/20 hover:border-yellow-300 hover:scale-105 transition-all duration-300 group font-bold"
                 size="lg"
               >
                 <Phone className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
