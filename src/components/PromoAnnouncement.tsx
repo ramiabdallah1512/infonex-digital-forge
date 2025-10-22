@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, Sparkles, Globe, X } from "lucide-react";
 import { useState } from "react";
 
-const PromoAnnouncement = () => {
+interface PromoAnnouncementProps {
+  onContactClick: () => void;
+}
+
+const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   if (!isVisible) return null;
@@ -57,24 +61,23 @@ const PromoAnnouncement = () => {
 
           {/* CTA Buttons */}
           <div className="space-y-2 pt-2">
-            <a href="mailto:contact@infonex.fr">
-              <Button 
-                className="w-full bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 group"
-                size="lg"
-              >
-                <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                Contactez-nous par Email
-              </Button>
-            </a>
+            <Button 
+              onClick={onContactClick}
+              className="w-full bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 group"
+              size="lg"
+            >
+              <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+              Contactez-nous par Email
+            </Button>
             
-            <a href="tel:0961085166">
+            <a href="tel:0759909999">
               <Button 
                 variant="outline"
                 className="w-full border-white/50 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 group"
                 size="lg"
               >
                 <Phone className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                09 61 08 51 66
+                07 59 90 99 99
               </Button>
             </a>
           </div>
