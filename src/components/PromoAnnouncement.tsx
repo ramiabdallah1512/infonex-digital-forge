@@ -42,6 +42,11 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
             Site Vitrine + E-mail Pro
           </h3>
 
+          {/* Texte au-dessus du prix */}
+          <p className="text-center text-white font-semibold animate-fade-in" style={{ animationDelay: "0.05s" }}>
+            💼 Votre présence en ligne professionnelle dès aujourd'hui
+          </p>
+
           {/* Prix */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <div className="text-center">
@@ -76,7 +81,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
           {/* Période promo */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 animate-pulse">
             <p className="text-center text-white font-semibold">
-              ⏰ Promotion valable jusqu'à fin d'année !
+              ⏰ Offre valable jusqu'au 31 décembre 2025
             </p>
           </div>
 
@@ -88,7 +93,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
               size="lg"
             >
               <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-              Contactez-nous par Email
+              ✉️ Obtenir mon offre maintenant
             </Button>
             
             <a href="tel:0759909999">
@@ -103,7 +108,14 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
             </a>
           </div>
 
-          <p className="text-center text-white/80 text-sm animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          {/* Ligne de confiance */}
+          <div className="bg-white/5 rounded-lg p-3 border border-white/10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <p className="text-center text-white/90 text-xs">
+              🔒 Paiement sécurisé • 🌐 Hébergement français • ⭐ Support Infonex
+            </p>
+          </div>
+
+          <p className="text-center text-white/80 text-sm animate-fade-in" style={{ animationDelay: "0.35s" }}>
             Contactez-nous dès maintenant ! 🚀
           </p>
         </div>
