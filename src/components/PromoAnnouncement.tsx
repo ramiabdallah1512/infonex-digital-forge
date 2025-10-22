@@ -65,6 +65,14 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
             </div>
           </div>
 
+          {/* Message d'accompagnement */}
+          <div className="bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 animate-fade-in" style={{ animationDelay: "0.25s" }}>
+            <p className="text-white font-semibold mb-2">🚀 Lancez votre business numériquement avec nous !</p>
+            <p className="text-white/90 text-sm">
+              On vous accompagne pour booster votre carrière et votre marque. On vous assure tout ce qu'il faut pour la pub !
+            </p>
+          </div>
+
           {/* Période promo */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 animate-pulse">
             <p className="text-center text-white font-semibold">
