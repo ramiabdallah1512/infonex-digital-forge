@@ -139,6 +139,7 @@ const ContactDialog = ({ open, onOpenChange, defaultSubject }: ContactDialogProp
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Demande de Rappel - Offre Promotionnelle">Demande de Rappel - Offre Promotionnelle</SelectItem>
+                <SelectItem value="Demande de Rappel - SecureGate Pro">Demande de Rappel - SecureGate Pro</SelectItem>
                 <SelectItem value="SecureGate Pro - Demande de démo">SecureGate Pro - Demande de démo</SelectItem>
                 <SelectItem value="SecureGate Pro - Devis personnalisé">SecureGate Pro - Devis personnalisé</SelectItem>
                 <SelectItem value="Infrastructure IT & Réseaux">Infrastructure IT & Réseaux</SelectItem>

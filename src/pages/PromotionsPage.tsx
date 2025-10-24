@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import QuoteDialog from "@/components/QuoteDialog";
 import ContactDialog from "@/components/ContactDialog";
 import PromoAnnouncement from "@/components/PromoAnnouncement";
+import PromoSecureGate from "@/components/PromoSecureGate";
 import { Sparkles, Zap, Gift, TrendingUp } from "lucide-react";
 
 const PromotionsPage = () => {
@@ -89,35 +90,49 @@ const PromotionsPage = () => {
         </div>
       </section>
 
-      {/* Main Promo Section */}
-      <section className="py-20 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+      {/* Main Promo Section - Site Web */}
+      <section className="py-20 bg-gradient-to-br from-background via-accent/5 to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 space-y-4 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                🎉 Offre de Lancement Exceptionnelle
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Profitez de cette opportunité unique pour démarrer votre projet digital
-              </p>
-            </div>
-
-            {/* Centered Promo Card */}
-            <div className="flex justify-center items-center min-h-[600px]">
-              <div className="w-full max-w-md">
-                <PromoAnnouncement 
-                  onContactClick={() => {
-                    setContactSubject("Développement Web");
-                    setContactDialogOpen(true);
-                  }}
-                />
-              </div>
-            </div>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Offre Création Site Web
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Lancez votre présence en ligne avec notre offre exclusive
+            </p>
           </div>
+          
+          <PromoAnnouncement 
+            onContactClick={() => {
+              setContactSubject("Demande de Rappel - Offre Promotionnelle");
+              setContactDialogOpen(true);
+            }} 
+          />
+        </div>
+      </section>
+
+      {/* SecureGate Pro Promo Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Offre SecureGate Pro
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Sécurisez tous vos accès avec notre solution d'authentification professionnelle
+            </p>
+          </div>
+          
+          <PromoSecureGate 
+            onContactClick={() => {
+              setContactSubject("Demande de Rappel - SecureGate Pro");
+              setContactDialogOpen(true);
+            }} 
+          />
         </div>
       </section>
 

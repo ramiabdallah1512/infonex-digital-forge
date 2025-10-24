@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import FeaturedProduct from "@/components/FeaturedProduct";
+
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Partners from "@/components/Partners";
@@ -34,7 +34,6 @@ const Index = () => {
         <div id="hero">
           <Hero onQuoteClick={() => setQuoteDialogOpen(true)} />
         </div>
-        <FeaturedProduct />
         <div id="services">
           <Services />
         </div>
