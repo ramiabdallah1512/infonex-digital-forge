@@ -10,13 +10,10 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QuoteDialog from "@/components/QuoteDialog";
 import ContactDialog from "@/components/ContactDialog";
-import PromoAnnouncement from "@/components/PromoAnnouncement";
 
 const Index = () => {
   const location = useLocation();
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
-  const [contactDialogOpen, setContactDialogOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -49,17 +46,6 @@ const Index = () => {
       </main>
       <Footer />
       <QuoteDialog open={quoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
-      <ContactDialog 
-        open={contactDialogOpen} 
-        onOpenChange={setContactDialogOpen}
-        defaultSubject={contactSubject}
-      />
-      <PromoAnnouncement 
-        onContactClick={() => {
-          setContactSubject("Développement Web");
-          setContactDialogOpen(true);
-        }}
-      />
     </div>
   );
 };

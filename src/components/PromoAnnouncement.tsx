@@ -8,19 +8,9 @@ interface PromoAnnouncementProps {
 }
 
 const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  if (!isVisible) return null;
-
   return (
-    <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md w-full px-4">
+    <div className="relative z-10 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md w-full mx-auto">
       <Card className="relative bg-gradient-to-br from-primary via-accent to-secondary p-4 md:p-6 border-2 border-white/20 shadow-2xl animate-glow">
-        <button
-          onClick={() => setIsVisible(false)}
-          className="absolute top-2 right-2 md:top-3 md:right-3 text-white/80 hover:text-white transition-colors"
-        >
-          <X className="w-4 h-4 md:w-5 md:h-5" />
-        </button>
         
         {/* Sparkles animation - masqués sur mobile */}
         <div className="hidden md:block absolute top-2 left-2 animate-pulse">
