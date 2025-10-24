@@ -84,6 +84,28 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                     </a>
                   );
                 }
+                // Style spécial pour l'onglet Promotions
+                if (item.label === "Promotions") {
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.path!}
+                      className={`font-bold transition-all relative group ${
+                        isActive 
+                          ? 'text-secondary animate-pulse' 
+                          : 'text-accent hover:text-secondary animate-bounce'
+                      }`}
+                    >
+                      <span className="relative inline-block">
+                        {item.label}
+                        <span className="absolute -top-1 -right-3 text-xs animate-ping">🎉</span>
+                      </span>
+                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-accent to-secondary transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                    </Link>
+                  );
+                }
                 return (
                   <Link
                     key={item.label}
@@ -145,6 +167,23 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                     >
                       {item.label}
                     </a>
+                  );
+                }
+                // Style spécial pour l'onglet Promotions mobile
+                if (item.label === "Promotions") {
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.path!}
+                      onClick={() => setIsOpen(false)}
+                      className={`block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-all font-bold ${
+                        isActive ? 'text-secondary bg-accent/10 animate-pulse' : 'text-accent'
+                      }`}
+                    >
+                      <span className="inline-flex items-center gap-2">
+                        🎉 {item.label}
+                      </span>
+                    </Link>
                   );
                 }
                 return (
