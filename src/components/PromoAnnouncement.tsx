@@ -13,7 +13,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md">
+    <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md w-full px-4">
       <Card className="relative bg-gradient-to-br from-primary via-accent to-secondary p-4 md:p-6 border-2 border-white/20 shadow-2xl animate-glow">
         <button
           onClick={() => setIsVisible(false)}
