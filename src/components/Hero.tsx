@@ -77,7 +77,7 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+        <div className="max-w-4xl mx-auto text-center space-y-8 animate-scale-in">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
             <span className="text-sm font-medium text-white">15+ ans d'expertise</span>
@@ -105,7 +105,7 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-scale-in" style={{ animationDelay: "0.3s" }}>
             <Button 
               size="lg" 
-              className="group bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-300 hover:scale-110 animate-glow"
+              className="group bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-300 hover:scale-110 animate-glow border-2 border-white/20 shadow-2xl"
               onClick={onQuoteClick}
             >
               Demander un devis

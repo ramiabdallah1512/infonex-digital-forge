@@ -67,7 +67,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4 animate-fade-in">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4 animate-scale-in">
           <h2 className="text-4xl md:text-5xl font-bold">
             Contactez-nous
           </h2>
@@ -78,7 +78,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6 animate-scale-in" style={{ animationDelay: "0.1s" }}>
             <Card className="border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -145,7 +145,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="border-primary/20 shadow-lg shadow-primary/5 animate-scale-in">
+          <Card className="border-primary/20 shadow-lg shadow-primary/5 animate-scale-in" style={{ animationDelay: "0.2s" }}>
             <CardHeader>
               <CardTitle>Envoyez-nous un message</CardTitle>
               <CardDescription>

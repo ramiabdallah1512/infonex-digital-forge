@@ -90,6 +90,7 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                     <Link
                       key={item.label}
                       to={item.path!}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className={`font-bold transition-all relative group ${
                         isActive 
                           ? 'text-secondary animate-pulse' 
@@ -110,6 +111,7 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                   <Link
                     key={item.label}
                     to={item.path!}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className={`font-medium transition-colors relative group ${
                       isActive ? 'text-primary' : 'text-foreground hover:text-primary'
                     }`}
@@ -175,7 +177,10 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                     <Link
                       key={item.label}
                       to={item.path!}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
                       className={`block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-all font-bold ${
                         isActive ? 'text-secondary bg-accent/10 animate-pulse' : 'text-accent'
                       }`}
@@ -190,7 +195,10 @@ const Navbar = ({ onQuoteClick }: NavbarProps) => {
                   <Link
                     key={item.label}
                     to={item.path!}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     className={`block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium ${
                       isActive ? 'text-primary' : ''
                     }`}

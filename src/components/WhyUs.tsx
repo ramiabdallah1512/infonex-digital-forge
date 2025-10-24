@@ -16,7 +16,7 @@ const WhyUs = () => {
     <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6 animate-scale-in">
             <h2 className="text-4xl md:text-5xl font-bold">
               Pourquoi choisir
               <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">

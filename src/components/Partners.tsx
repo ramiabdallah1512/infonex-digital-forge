@@ -15,7 +15,7 @@ const Partners = () => {
   return (
     <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
+        <div className="text-center space-y-4 mb-16 animate-scale-in">
           <h2 className="text-4xl md:text-5xl font-bold">
             Nos Partenaires Technologiques
           </h2>
@@ -29,7 +29,7 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <Card
               key={index}
-              className="group p-8 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 bg-background/50 backdrop-blur animate-fade-in"
+              className="group p-8 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 bg-background/50 backdrop-blur animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="text-center space-y-3">
