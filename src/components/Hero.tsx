@@ -79,13 +79,13 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-scale-in">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm animate-scale-in hover:scale-105 transition-transform">
-            <span className="text-sm font-medium text-white">15+ ans d'expertise</span>
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm animate-bounce">
+            <span className="text-sm font-medium text-white">✨ 15+ ans d'expertise</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in">
-            <span className="text-[#ff6b35]">INFONEX —</span>
+            <span className="text-[#ff6b35] animate-pulse">INFONEX —</span>
             <br />
             <span className="text-white">Infogérance,</span>
             <br />
