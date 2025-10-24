@@ -137,12 +137,15 @@ const PromotionsPage = () => {
             >
               📞 07 59 90 99 99
             </a>
-            <a 
-              href="mailto:contact@infonex.fr"
+            <button 
+              onClick={() => {
+                setContactSubject("Demande de Rappel - Offre Promotionnelle");
+                setContactDialogOpen(true);
+              }}
               className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border-2 border-white/30 hover:bg-white/20 hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
             >
-              ✉️ Envoyer un email
-            </a>
+              📞 Demander un rappel
+            </button>
           </div>
         </div>
       </section>
