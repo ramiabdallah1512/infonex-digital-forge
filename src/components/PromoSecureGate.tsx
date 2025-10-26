@@ -97,11 +97,11 @@ const PromoSecureGate = ({ onContactClick }: PromoSecureGateProps) => {
                 Demander un rappel
               </Button>
               <a 
-                href="tel:0493043526"
+                href="tel:0759909999"
                 className="flex items-center justify-center gap-2 w-full h-12 text-lg font-semibold border-2 border-primary rounded-md hover:bg-primary/10 transition-all duration-300"
               >
                 <Phone className="w-5 h-5" />
-                04 93 04 35 26
+                07 59 90 99 99
               </a>
               <p className="text-center text-xs text-muted-foreground">
                 Installation et configuration incluses • Sans engagement
