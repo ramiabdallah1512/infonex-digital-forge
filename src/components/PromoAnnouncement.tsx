@@ -1,15 +1,102 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Sparkles, Globe, X } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, Sparkles, Globe, X, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface PromoAnnouncementProps {
   onContactClick: () => void;
 }
 
 const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="relative z-10 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md w-full mx-auto">
+    <>
+      <Dialog open={showPopup} onOpenChange={setShowPopup}>
+        <DialogContent className="sm:max-w-md bg-gradient-to-br from-primary via-accent to-secondary border-2 border-white/20 text-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2 animate-fade-in">
+              <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
+              Créez Votre Site Web Pro !
+              <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
+            </DialogTitle>
+            <DialogDescription className="text-white/90 text-center space-y-4 pt-4">
+              <div className="animate-scale-in">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4">
+                  <Zap className="w-5 h-5 text-yellow-300" />
+                  <span className="font-bold">OFFRE EXCEPTIONNELLE</span>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <span className="text-white/60 line-through text-xl">799 €</span>
+                  <span className="text-3xl font-bold text-yellow-300">249 €</span>
+                </div>
+                <p className="text-sm text-white/90">
+                  Site Web + E-mail Pro
+                </p>
+              </div>
+
+              <div className="space-y-2 text-left animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-yellow-300"></div>
+                  <p className="text-sm">✨ Design moderne et responsive</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-yellow-300"></div>
+                  <p className="text-sm">📧 E-mail professionnel inclus</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-yellow-300"></div>
+                  <p className="text-sm">🚀 Hébergement + nom de domaine</p>
+                </div>
+              </div>
+
+              <div className="pt-2 space-y-2 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+                <Button 
+                  onClick={() => {
+                    setShowPopup(false);
+                    onContactClick();
+                  }}
+                  className="w-full bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 group"
+                >
+                  <Mail className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+                  Je veux mon site web !
+                </Button>
+                <Button 
+                  onClick={() => setShowPopup(false)}
+                  variant="outline"
+                  className="w-full border-white/30 bg-white/10 text-white hover:bg-white/20"
+                >
+                  Plus tard
+                </Button>
+              </div>
+
+              <p className="text-xs text-white/70 animate-pulse">
+                ⏰ Offre limitée - Expire le 31 décembre 2025
+              </p>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+
+      <div className="relative z-10 animate-scale-in max-w-[calc(100vw-2rem)] md:max-w-md w-full mx-auto">
       <Card className="relative bg-gradient-to-br from-primary via-accent to-secondary p-4 md:p-6 border-2 border-white/20 shadow-2xl animate-glow">
         
         {/* Sparkles animation - masqués sur mobile */}
@@ -29,7 +116,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
 
           {/* Titre */}
           <h3 className="text-xl md:text-2xl font-bold text-white leading-tight animate-fade-in">
-            Site Vitrine + E-mail Pro
+            Site Web + E-mail Pro
           </h3>
 
           {/* Texte au-dessus du prix */}
@@ -109,6 +196,7 @@ const PromoAnnouncement = ({ onContactClick }: PromoAnnouncementProps) => {
         </div>
       </Card>
     </div>
+    </>
   );
 };
 
